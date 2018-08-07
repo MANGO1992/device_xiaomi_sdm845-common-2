@@ -123,6 +123,12 @@ TARGET_PRODUCT_PROP += $(COMMON_PATH)/product.prop
 TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
 TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
 
+# Power
+TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/wake_gesture"
+
+# QCOM
+BOARD_USES_QCOM_HARDWARE := true
+
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 
