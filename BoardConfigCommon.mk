@@ -125,6 +125,7 @@ TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
 
 # Power
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/wake_gesture"
+TARGET_TAP_TO_WAKE_EVENT_NODE := "/dev/input/event4"
 
 # QCOM
 BOARD_USES_QCOM_HARDWARE := true

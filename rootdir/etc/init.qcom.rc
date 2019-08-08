@@ -187,6 +187,15 @@ on boot
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/device/extldo
     chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
 
+on init
+    mount none /system/lib64/hw/power.qcom.so /vendor/lib64/hw/power.qcom.so bind
+    mount none /system/lib/hw/power.qcom.so /vendor/lib/hw/power.qcom.so bind
+    mount none /system/lib/modules/wlan.ko /vendor/lib/modules/qca_cld3_wlan.ko bind
+
+on boot
+    chown system system /proc/touchpanel/wake_gesture
+    chmod 0660 /proc/touchpanel/wake_gesture
+
     # This location is used by QCRIL to host UNIX domain
     # socket files used for internal IPC within QCRIL
     # modules
@@ -821,10 +830,3 @@ on property:vold.decrypt=trigger_restart_framework && property:ro.crypto.type=bl
     setprop persist.ppd.fde.config 1
     start ppd
 
-    mount none /system/lib64/hw/power.qcom.so /vendor/lib64/hw/power.qcom.so bind
-    mount none /system/lib/hw/power.qcom.so /vendor/lib/hw/power.qcom.so bind
-    mount none /system/lib/modules/wlan.ko /vendor/lib/modules/qca_cld3_wlan.ko bind
-
-on boot
-    chown system system /proc/touchpanel/wake_gesture
-    chmod 0660 /proc/touchpanel/wake_gesture
